@@ -1,0 +1,66 @@
+﻿@using ToDoApp.Data
+@model IEnumerable<Taskk>
+@{
+    ViewData["Title"] = "Index";
+    DateOnly dan = DateOnly.FromDateTime(DateTime.Now);
+}
+<script src="~/js/site.js"></script>
+
+<section class="vh-auto" style="background-color: #eee;">
+    <div class="container py-5 h-auto">
+        <div class="row d-flex justify-content-center align-items-center h-auto">
+            <div class="col col-lg-9 col-xl-7">
+                <div class="card rounded-3">
+                    <div class="card-body p-4">
+
+                        <h4 class="text-center my-3 pb-3">To Do App</h4>
+                        <h4 class="text-center my-3 pb-3">@dan.DayOfWeek</h4>
+
+                        <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
+                            <div class="col-12">
+                                <button asp-controller="Taskk" asp-action="Create" type="submit" class="btn btn-primary">Add Task</button>
+                            </div>
+                        </form>
+
+                        <table class="table mb-4">
+                            <thead>
+                                <tr>
+                                    <th scope="col"></th>
+                                    <th scope="col">Task</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Time Created</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var obj in Model)
+                                {
+                                    <tr>
+                                        <th scope="row">
+                                            -
+                                        </th>
+                                        <td class="col">
+                                            @obj.Description
+                                        </td>
+                                        <td class="col">
+                                            @obj.Importance
+                                        </td>
+                                        <td class="col">
+                                            @obj.Time.ToString("t")
+                                        </td>
+                                        <td class ="col-4">
+                                            <a type="submit" asp-controller="Taskk" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger my-1"><i class="bi bi-trash3-fill"></i>&nbsp; Delete</a>
+                                            <a type="submit" asp-controller="Taskk" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-success my-1 "><i class="bi bi-pencil-fill"></i>&nbsp; Edit</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

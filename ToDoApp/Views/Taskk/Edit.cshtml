@@ -1,0 +1,26 @@
+﻿@using ToDoApp.Data
+@model Taskk
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Description">Description</label>
+        <input asp-for="Description" class="form-control" placeholder="" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Importance">Importance</label>
+        <select asp-for="Importance" asp-items="@Html.GetEnumSelectList<ImportantCategory>()" class="form-control form-control-lg"></select>
+        <span asp-validation-for="Importance" class="text-danger"></span>
+    </div>
+    <br/>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a asp-controller="Taskk" asp-action="Index" class="btn btn-warning">
+        Back to Tasks
+    </a>
+</form>
