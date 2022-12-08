@@ -33,4 +33,4 @@ This application gives users the ability to add, delete and edit tasks.
 # Author
 
 - GitHub - [@MilosMoskic](https://github.com/MilosMoskic)
-- LinkIn - [@milos_moskic](https://www.linkedin.com/in/milo%C5%A1-moski%C4%87-a02446222/)
+- LinkedIn - [@milos_moskic](https://www.linkedin.com/in/milo%C5%A1-moski%C4%87-a02446222/)
