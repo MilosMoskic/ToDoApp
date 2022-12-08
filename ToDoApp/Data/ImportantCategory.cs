@@ -4,7 +4,7 @@ namespace ToDoApp.Data
 {
     public enum ImportantCategory
     {
-        Important,
-        UnImportant
+        InProgress,
+        Completed
     }
 }

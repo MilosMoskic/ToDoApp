@@ -13,7 +13,7 @@
         <input asp-for="Description" disabled class="form-control" />
     </div>
     <div class="form-group">
-        <label asp-for="Importance"></label>
+        <label asp-for="Importance">Status</label>
         <select asp-for="Importance" asp-items="@Html.GetEnumSelectList<ImportantCategory>()" disabled class="form-control form-control-lg"></select>
     </div>
     <br/>
