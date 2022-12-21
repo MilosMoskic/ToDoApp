@@ -34,10 +34,13 @@ namespace ToDoApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("FromTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("Importance")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Time")
+                    b.Property<DateTime>("ToTime")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");

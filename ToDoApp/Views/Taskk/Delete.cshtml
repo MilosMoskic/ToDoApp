@@ -10,11 +10,19 @@
     <input asp-for="Id" hidden />
     <div class="form-group">
         <label asp-for="Description"></label>
-        <input asp-for="Description" disabled class="form-control" />
+        <input asp-for="Description" disabled class="form-control labels" />
     </div>
     <div class="form-group">
         <label asp-for="Importance">Status</label>
-        <select asp-for="Importance" asp-items="@Html.GetEnumSelectList<ImportantCategory>()" disabled class="form-control form-control-lg"></select>
+        <select asp-for="Importance" asp-items="@Html.GetEnumSelectList<ImportantCategory>()" disabled class="form-control form-control-lg labels"></select>
+    </div>
+    <div class="form-group mt-3">
+        <label>Starting time</label>
+        <input id="fromtime" type="time" name="FromTime" />
+    </div>
+    <div class="form-group mt-3">
+        <label>Ending time</label>
+        <input id="totime" type="time" name="ToTime" />
     </div>
     <br/>
 

@@ -9,13 +9,21 @@
 <form method="post">
     <div class="form-group">
         <label asp-for="Description">Description</label>
-        <input asp-for="Description" class="form-control" placeholder="" />
+        <input asp-for="Description" class="form-control labels" placeholder="" />
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
     <div class="form-group">
         <label asp-for="Importance">Status</label>
-        <select asp-for="Importance" asp-items="@Html.GetEnumSelectList<ImportantCategory>()" class="form-control form-control-lg"></select>
+        <select asp-for="Importance" asp-items="@Html.GetEnumSelectList<ImportantCategory>()" class="form-control form-control-lg labels"></select>
         <span asp-validation-for="Importance" class="text-danger"></span>
+    </div>
+    <div class="form-group mt-3">
+        <label>Starting time</label>
+        <input id="fromtime" type="time" name="FromTime" />
+    </div>
+    <div class="form-group mt-3">
+        <label>Ending time</label>
+        <input id="totime" type="time" name="ToTime" />
     </div>
     <br/>
 
