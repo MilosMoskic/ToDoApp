@@ -2,7 +2,6 @@
 @model IEnumerable<Taskk>
 @{
     ViewData["Title"] = "Index";
-    DateOnly dan = DateOnly.FromDateTime(DateTime.Now);
     int br = 1;
 }
 <script src="~/js/site.js"></script>
@@ -14,23 +13,20 @@
                 <div class="card rounded-3">
                     <div class="card-body p-4">
 
-                        <h4 class="text-center my-3 pb-3">To Do App</h4>
-                        <h4 class="text-center my-3 pb-3">@dan.DayOfWeek</h4>
+                        <h4 class="text-center my-3 pb-3">Completed Tasks</h4>
 
                         <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
                             <div class="col-12">
-                                <button asp-controller="Taskk" asp-action="Create" type="submit" class="btn btn-primary">Add Task</button>
-                                <button asp-controller="Taskk" asp-action="CompletedTasks" type="submit" class="btn btn-primary">Completed Tasks</button>
+                                <button asp-controller="Taskk" asp-action="Index" type="submit" class="btn btn-primary">Tasks</button>
                             </div>
                         </form>
-
                         <table class="table mb-4">
                             <thead>
                                 <tr>
                                     <th scope="col"></th>
                                     <th scope="col">Task</th>
                                     <th scope="col">Status</th>
-                                    <th scope="col">Starting Time</th>
+                                    <th scope="col">Time Created</th>
                                     <th scope="col">Ending Time</th>
                                     <th scope="col">Actions</th>
                                 </tr>
@@ -38,7 +34,7 @@
                             <tbody>
                                 @foreach (var obj in Model)
                                 {
-                                    @if ((int)obj.Importance == 0 || (int)obj.Importance == 1 || (int)obj.Importance == 2)
+                                    @if ((int)obj.Importance == 3)
                                     {
                                         <tr>
                                             <th scope="row">
@@ -51,13 +47,15 @@
                                                 @obj.Importance
                                             </td>
                                             <td class="col">
-                                                @(obj.FromTime?.ToString("HH:mm") ?? "N/A")
+                                                @( obj.FromTime?.ToString("HH:mm") ?? "N/A")
                                             </td>
-                                            <td class="col">
-                                                @(obj.ToTime?.ToString("HH:mm") ?? "N/A")
+                                            <td class="col">@(obj.ToTime?.ToString("HH:mm") ?? "N/A")
                                             </td>
-                                            <td class="col-2">
-                                                <a type="submit" asp-controller="Taskk" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-success my-1 "><i class="bi bi-pencil-fill"></i>&nbsp; Edit</a>
+                                            <td class="col-4">
+                                                @using (Html.BeginForm("DeleteCompleted", "Taskk", new { id = @obj.Id }))
+                                                {
+                                                                <input type="submit" value="DeleteCompleted" class="btn btn-danger" onclick="return confirm(&quot;Are sure to delete this task?&quot;)"/> 
+                                                }
                                             </td>
                                         </tr>
                                     }
@@ -71,4 +69,3 @@
         </div>
     </div>
 </section>
-

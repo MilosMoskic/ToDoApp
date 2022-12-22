@@ -6,19 +6,18 @@ namespace ToDoApp.Controllers
 {
     public class TaskkController : Controller
     {
-        private readonly ApplicationDbContext _db; // readonly postavlja konstantu nepromenjivu vrednost promenjive u toku 
-                                                   // izvrsavanja programa
-                                                   // za razliku od const kod kojeg se odmah postavlja kompajlirana promenjiva
+        private readonly ApplicationDbContext _db;
 
-        public TaskkController(ApplicationDbContext db) // predstavlja sve tabele koje su nam potrebene
+
+        public TaskkController(ApplicationDbContext db)
         {
             _db = db;
         }
 
         public IActionResult Index()
         {
-            IEnumerable<Taskk> objTaskList = _db.Taskks; // _db.Taskks.ToList(); odlazi u bg uzima sve taskove i postavlja ih u listu
-            return View(objTaskList);                         // Taskks predstavlaj db set koji smo napravili u ApplicationDbContext
+            IEnumerable<Taskk> objTaskList = _db.Taskks;
+            return View(objTaskList);
         }
 
         //GET
@@ -35,9 +34,8 @@ namespace ToDoApp.Controllers
             {
                 _db.Taskks.Add(obj);
                 _db.SaveChanges();
-                return RedirectToAction("Index"); // RedirectToAction izvrsava opet neku metodu 
-                                                  // U ovom slucaju je to metoda Index koja vraca
-                                                  // sve taskove 
+                return RedirectToAction("Index");
+
             }
             return View(obj);
         }
@@ -66,42 +64,36 @@ namespace ToDoApp.Controllers
             {
                 _db.Taskks.Update(obj);
                 _db.SaveChanges();
-                return RedirectToAction("Index"); // RedirectToAction vraca pogled na koji se izvrsila akcija
+                return RedirectToAction("Index");
             }
             return View(obj);
         }
 
         //GET
-        public IActionResult Delete(int? id)
+        public IActionResult CompletedTasks()
         {
-            if (id == null || id == 0)
-            {
-                return NotFound();
-            }
-            var taskkFromDb = _db.Taskks.Find(id);
-
-            if (taskkFromDb == null)
-            {
-                return NotFound();
-            }
-            return View(taskkFromDb);
+            IEnumerable<Taskk> objTaskList = _db.Taskks;
+            return View(objTaskList);
         }
-        //POST
+
+        //Delete
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteTASK(int? id)
+        public async Task<IActionResult> DeleteCompleted(int id)
         {
-            var obj = _db.Taskks.Find(id);
-            if (obj == null)
+            if (_db.Taskks == null)
             {
-                return NotFound();
+                return Problem("Entity set 'ApplicationDbContext.Taskks'  is null.");
+            }
+            var completed = await _db.Taskks.FindAsync(id);
+            if (completed != null)
+            {
+                _db.Taskks.Remove(completed);
             }
 
-            _db.Taskks.Remove(obj);
-                _db.SaveChanges();
-                return RedirectToAction("Index"); // RedirectToAction izvrsava opet neku metodu 
-                                                  // U ovom slucaju je to metoda Index koja vraca
-                                                  // sve taskove 
+            await _db.SaveChangesAsync();
+            return RedirectToAction(nameof(CompletedTasks));
         }
+
     }
 }
