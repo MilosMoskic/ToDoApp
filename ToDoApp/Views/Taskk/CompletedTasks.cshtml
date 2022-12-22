@@ -51,10 +51,10 @@
                                             </td>
                                             <td class="col">@(obj.ToTime?.ToString("HH:mm") ?? "N/A")
                                             </td>
-                                            <td class="col-4">
+                                            <td class="col-2">
                                                 @using (Html.BeginForm("DeleteCompleted", "Taskk", new { id = @obj.Id }))
                                                 {
-                                                                <input type="submit" value="DeleteCompleted" class="btn btn-danger" onclick="return confirm(&quot;Are sure to delete this task?&quot;)"/> 
+                                                                <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirm(&quot;Are sure to delete this task?&quot;)"/> 
                                                 }
                                             </td>
                                         </tr>
