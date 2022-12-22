@@ -34,7 +34,7 @@ Deleting a task is done by clicking *Delete* button in *List of Completed Tasks*
 
 ## List of Completed Tasks
 
-![Screenshot 2022-12-22 093606](https://user-images.githubusercontent.com/93045390/209093285-79b3bd42-35e7-495e-b127-8ec962616fa2.png)
+![Screenshot 2022-12-22 095136](https://user-images.githubusercontent.com/93045390/209096022-e2b5139d-6deb-4ad7-a47a-6ed9842d9a9f.png)
 
 # Author
 
