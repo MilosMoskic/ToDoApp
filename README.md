@@ -14,9 +14,9 @@ This application gives users the ability to add, delete and edit tasks.
 
 # Instructions
 
-When a task is created, its statu is automatically set to "Starting".
-Status of a task can be changed in Edit Tab.
-Deleting a task is done by clicking *Delete* button in List of Completed Tasks.
+When a task is created, its statu is automatically set to *Starting*. <br/>
+Status of a task can be changed in *Edit Tab*. <br/>
+Deleting a task is done by clicking *Delete* button in *List of Completed Tasks*.
 
 # Screenshots
 
