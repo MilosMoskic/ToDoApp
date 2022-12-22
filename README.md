@@ -12,23 +12,29 @@ This application gives users the ability to add, delete and edit tasks.
 - View Components
 - Bootstrap
 
+# Instructions
+
+When a task is created, its status is automatically set to *Starting*. <br/>
+Status of a task can be changed in *Edit Tab*. <br/>
+Deleting a task is done by clicking *Delete* button in *List of Completed Tasks*.
+
 # Screenshots
 
 ## List of Tasks
 
-![Screenshot 2022-12-08 144136](https://user-images.githubusercontent.com/93045390/206461506-cd218b2c-bf11-4470-ba62-4dadfc188e49.png)
+![Screenshot 2022-12-22 093453](https://user-images.githubusercontent.com/93045390/209093182-1829c513-ad64-499f-af9b-d5a217864be6.png)
 
-## Create Task
+## Create Tab
 
-![Screenshot 2022-12-08 144958](https://user-images.githubusercontent.com/93045390/206462859-3397d9ca-0ea0-453c-bddd-4f2d4250277e.png)
+![Screenshot 2022-12-22 093517](https://user-images.githubusercontent.com/93045390/209093221-691c3a55-223e-4c40-a8ee-8a5667cf6e5a.png)
 
-## Edit Task
+## Edit Tab
 
-![Screenshot 2022-12-08 145036](https://user-images.githubusercontent.com/93045390/206462991-070dd6f5-9918-4f71-96c6-d8ea64424309.png)
+![Screenshot 2022-12-22 093543](https://user-images.githubusercontent.com/93045390/209093260-eb284521-49f4-4f74-a0fd-82fa604ec7c1.png)
 
-## Delete Task
+## List of Completed Tasks
 
-![Screenshot 2022-12-08 145122](https://user-images.githubusercontent.com/93045390/206463167-8616af94-0c35-40c2-932a-443b26b49583.png)
+![Screenshot 2022-12-22 093606](https://user-images.githubusercontent.com/93045390/209093285-79b3bd42-35e7-495e-b127-8ec962616fa2.png)
 
 # Author
 
